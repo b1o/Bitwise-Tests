@@ -26,7 +26,7 @@ File.open("result.pdf", "w"){}
 	puts "Numbers(HEX): #{number2.to_s(16)}, #{number1.to_s(16)}"
 	puts "OR = #{a}\nAND = #{b}\nXOR = #{c}"
 
-	File.open("result.pdf", "a") do |file| 
+	File.open("result.txt", "a") do |file| 
 		file.write("#{i+1}.\n")
 		file.write("a = #{number2}\nb = #{number1}\n")
 		file.write("Numbers(HEX): #{number2.to_s(16)}, #{number1.to_s(16)}\n")
@@ -35,4 +35,4 @@ File.open("result.pdf", "w"){}
 	end
 end
 
-`notepad result.pdf`
+`notepad result.txt`
