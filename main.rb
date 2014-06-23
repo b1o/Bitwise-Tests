@@ -10,7 +10,11 @@ end
 
 def generateRandomEasyHex
 	hex = []
-	
+	ran = [rand(1..15),0,0]
+	rand(4..7).times do
+		hex << ran[rand(0..2)].to_s(16)
+	end
+	return "0x#{hex.join("")}"
 end
 
 def generateRandomOperator
@@ -100,25 +104,24 @@ def generateEndHTML
 </html>"
 end
 
-def generateHTMLtest(count)
+def generateHTMLtest(count, argv)
 	File.open("answers_#{count}.txt", "w"){}
 	i = 1
 	File.open("test#{count}.html", "a") do |file|
 		3.times do
 			file.write("<tr>")
 			4.times do 
-				number1 = generateRandomHardHex
-				number2 = generateRandomHardHex
-				operator = generateRandomOperator
-				File.open("temp_file.rb", "w") do |file|
-					file.write("c = #{number1} #{operator} #{number2}\nputs c.to_s(16)")
+				if argv == "easy"
+					number1 = generateRandomEasyHex
+					number2 = generateRandomEasyHex
+					operator = generateRandomOperator
+				elsif argv == "hard"
+					number1 = generateRandomHardHex
+					number2 = generateRandomHardHex
+					operator = generateRandomOperator
 				end
-
-				result = `ruby temp_file.rb`
-
-				File.delete("temp_file.rb")
-				File.open("answers_#{count}.txt", "a") do |file|
-					file.write("#{i}. #{result}")
+				File.open("temp_file.rb", "a") do |file|
+					file.write("c#{i} = #{number1} #{operator} #{number2}\nputs c#{i}.to_s(16)\n")
 					i+=1
 				end
 
@@ -127,6 +130,7 @@ def generateHTMLtest(count)
 							int orig = #{number1}<br>
 							int insert = #{number2}<br>
 							int a = orig #{operator} insert<br>
+							a = ............................
 	                            <br></br>
 	                            <br></br>
 
@@ -145,6 +149,12 @@ def generateHTMLtest(count)
 			file.write("</tr>")
 		end
 	end
+	result = `ruby temp_file.rb`
+
+	File.delete("temp_file.rb")
+	File.open("answers_#{count}.txt", "w") do |file|
+		file.write("#{result}")
+	end
 end
 
 def htmlend(count)
@@ -158,11 +168,13 @@ def htmlbegin(count)
 		file.write(generateStartHTML(count))
 	end
 end
-generateCss
 
+begining = Time.now
+generateCss
 ARGV[0].to_i.times do |i|
 	htmlbegin(i+1)
-	generateHTMLtest(i+1)
+	generateHTMLtest(i+1, ARGV[1])
 	htmlend(i+1)
 end
+puts "Time elapsed #{Time.now - begining} seconds"
 
