@@ -1,0 +1,11 @@
+1.A program that is doing bitwise operations(AND,OR,XOR) of two hexademical digits.
+
+2.Generating one test with 12 bitwise operation tasks.
+
+3.Generating 12 answers to the bitwise operations tasks in the test.
+
+4.Exporting test+answers in HTML.
+
+5.Exporting test+answers in PDF.
+
+6.Option for choosing Easy/Hard/Mixed Easy+Hard tests.
