@@ -1,0 +1,41 @@
+div#container {
+    width: 1250px;
+    height: 750px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font: 100% 'Lato', sans-serif;
+}
+
+div#container table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+ }
+
+div#container table {
+    width: inherit;
+    height: inherit;
+ }
+
+div#container th {
+    font-weight: normal;
+}
+
+div#container td {
+    margin: 0;
+    position: relative;
+    vertical-align: top;
+}
+
+div#container td span.answer {
+    padding: 0 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+    
