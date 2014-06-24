@@ -74,16 +74,7 @@ class Test
 	            margin: 0;
 	            position: relative;
 	            vertical-align: top;
-	        }
-	        div#container td span.answer {
-	            padding: 0 5px;
-	            position: absolute;
-	            right: 0;
-	            bottom: 0;
-	            border-top: 1px solid black;
-	            border-left: 1px solid black;
-	        }
-	    ")
+	        }")
 		end
 	end
 
@@ -245,7 +236,7 @@ ARGV[0].to_i.times do |i|
 	test.htmlend(i+1)
 end
 j=1
-while (j<=ARGV[O].to_i)
+while (j<=ARGV[0].to_i)
 	`wkhtmltopdf test#{j}.html test#{j}.pdf`
 	j=j+1;
 end
