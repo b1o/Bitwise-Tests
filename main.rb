@@ -41,8 +41,8 @@ class Test
 
 	def generateCss
 		File.open("style.css", "w") do |file|
-			file.write("        @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
-	    
+			file.write("
+	  
 	        div#container {
 	            width: 1250px;
 	            height: 750px;
@@ -53,7 +53,7 @@ class Test
 	            bottom: 0;
 	            right: 0;
 	    
-	            font: 100% 'Lato', sans-serif;
+	            font: 100% 'Arial', sans-serif;
 	        }
 	    
 	        div#container table, th, td {
@@ -243,6 +243,11 @@ ARGV[0].to_i.times do |i|
 	test.htmlbegin(i+1)
 	test.generateHTMLtest(i+1, ARGV[1])
 	test.htmlend(i+1)
+end
+j=1
+while (j<=ARGV[O].to_i)
+	`wkhtmltopdf test#{j}.html test#{j}.pdf`
+	j=j+1;
 end
 File.delete("temp_file.cc")
 puts "Time elapsed #{Time.now - begining} seconds"
