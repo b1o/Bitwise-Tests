@@ -13,3 +13,7 @@ Bitwise-Tests
 	4. Added answers generating(to be optimized)
 	5. Added a more propper way of generating html tests
 	6. Improved file creation time with 65~75% by imporving the generateHTMLtest method
+
+## Update on main.rb - 25.05.2014/8:38PM ##
+	1. Added shift tasks support - generateRandomShifter
+	2. Added the method parseResult for better answers output (Still .txt, no html)
