@@ -17,3 +17,4 @@ Bitwise-Tests
 ## Update on main.rb - 25.05.2014/8:38PM ##
 	1. Added shift tasks support - generateRandomShifter
 	2. Added the method parseResult for better answers output (Still .txt, no html)
+	3. The answers generating now uses C++ instead of Ruby
