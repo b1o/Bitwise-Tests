@@ -1,6 +1,6 @@
 Bitwise-Tests
 
-Ruby script that generates tests with bitwise tasks for a school project.
+	Ruby script that generates exams with bitwise tasks for a school project.
 =============
 
 ## Notes on main.rb - 21.06.2014/01:44AM ##
